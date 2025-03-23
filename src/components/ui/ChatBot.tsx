@@ -32,7 +32,7 @@ const botResponses: Record<string, string[]> = {
   ],
   doctor: [
     'Our hospital has specialists in various fields including cardiology, pediatrics, orthopedics, and more.',
-    'You can view our doctors' profiles on our website under the "Our Doctors" section.',
+    'You can view our doctors\' profiles on our website under the "Our Doctors" section.',
   ],
   service: [
     'We offer a wide range of services including general consultations, specialist care, diagnostics, vaccinations, and emergency services.',
@@ -51,7 +51,7 @@ const botResponses: Record<string, string[]> = {
     'You can find directions on our Contact page.',
   ],
   default: [
-    'I'm not sure I understand. Could you please rephrase your question?',
+    'I\'m not sure I understand. Could you please rephrase your question?',
     'For more specific assistance, you may want to contact our customer service team directly.',
   ],
 };

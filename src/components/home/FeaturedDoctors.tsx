@@ -26,6 +26,11 @@ const FeaturedDoctors = () => {
     }
   };
 
+  console.log('Total doctors:', doctors.length);
+  console.log('Filtered doctors:', filteredDoctors.length);
+  console.log('Displayed doctors:', displayedDoctors.length);
+  console.log('Show all:', showAll);
+
   return (
     <section className="py-16 md:py-24 bg-healthcare-50" id="doctors">
       <div className="container mx-auto px-4 md:px-6">

@@ -4,7 +4,6 @@ import { Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Doctor } from '@/data/doctors';
-import { itemVariants } from './AnimationVariants';
 
 interface DoctorCardProps {
   doctor: Doctor;
@@ -12,10 +11,8 @@ interface DoctorCardProps {
 
 const DoctorCard: React.FC<DoctorCardProps> = ({ doctor }) => {
   return (
-    <motion.div
-      className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-md group"
-      variants={itemVariants}
-      whileHover={{ y: -5 }}
+    <div
+      className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-md group h-full"
     >
       <div className="relative overflow-hidden h-64">
         <img 
@@ -42,7 +39,7 @@ const DoctorCard: React.FC<DoctorCardProps> = ({ doctor }) => {
           </Button>
         </Link>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

@@ -1,9 +1,10 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, ChevronDown, ChevronUp, User } from 'lucide-react';
+import { Calendar, ChevronDown, ChevronUp, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { 
   Card, 
   CardContent, 
@@ -13,6 +14,7 @@ import {
 
 const FeaturedDoctors = () => {
   const [showAll, setShowAll] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -182,15 +184,21 @@ const FeaturedDoctors = () => {
     },
   ];
 
+  // Filter doctors based on search term
+  const filteredDoctors = doctors.filter(doctor => 
+    doctor.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    doctor.specialty.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   // Display only the first 4 doctors initially, show all when showAll is true
-  const displayedDoctors = showAll ? doctors : doctors.slice(0, 4);
+  const displayedDoctors = showAll ? filteredDoctors : filteredDoctors.slice(0, 4);
 
   const toggleShowAll = () => {
     setShowAll(!showAll);
   };
 
   return (
-    <section className="py-16 md:py-24 bg-healthcare-50">
+    <section className="py-16 md:py-24 bg-healthcare-50" id="doctors">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           className="text-center max-w-3xl mx-auto mb-16"
@@ -200,9 +208,21 @@ const FeaturedDoctors = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Meet Our Specialists</h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-600 mb-8">
             Our team of experienced doctors is dedicated to providing the highest quality of care to all our patients.
           </p>
+          
+          {/* Search Input */}
+          <div className="max-w-md mx-auto relative mb-8">
+            <Input
+              type="text"
+              placeholder="Search by name or specialty..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="pl-10 bg-white"
+            />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+          </div>
         </motion.div>
 
         <motion.div
@@ -212,55 +232,63 @@ const FeaturedDoctors = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {displayedDoctors.map((doctor) => (
-            <motion.div
-              key={doctor.id}
-              className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-md group"
-              variants={itemVariants}
-              whileHover={{ y: -5 }}
-            >
-              <div className="relative overflow-hidden h-64">
-                <img 
-                  src={doctor.image} 
-                  alt={doctor.name} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <p className="text-white font-semibold">{doctor.specialty}</p>
+          {displayedDoctors.length > 0 ? (
+            displayedDoctors.map((doctor) => (
+              <motion.div
+                key={doctor.id}
+                className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-md group"
+                variants={itemVariants}
+                whileHover={{ y: -5 }}
+              >
+                <div className="relative overflow-hidden h-64">
+                  <img 
+                    src={doctor.image} 
+                    alt={doctor.name} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <p className="text-white font-semibold">{doctor.specialty}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="p-5">
-                <h3 className="text-xl font-semibold text-gray-900 mb-1">{doctor.name}</h3>
-                <p className="text-gray-500 mb-3">{doctor.education}</p>
-                <p className="text-gray-600 mb-4">Experience: {doctor.experience}</p>
-                <Link to="/appointments">
-                  <Button 
-                    className="w-full bg-healthcare-500 hover:bg-healthcare-600"
-                    size="sm"
-                  >
-                    <Calendar className="w-4 h-4 mr-2" />
-                    Book Appointment
-                  </Button>
-                </Link>
-              </div>
-            </motion.div>
-          ))}
+                <div className="p-5">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-1">{doctor.name}</h3>
+                  <p className="text-gray-500 mb-3">{doctor.education}</p>
+                  <p className="text-gray-600 mb-4">Experience: {doctor.experience}</p>
+                  <Link to="/appointments">
+                    <Button 
+                      className="w-full bg-healthcare-500 hover:bg-healthcare-600"
+                      size="sm"
+                    >
+                      <Calendar className="w-4 h-4 mr-2" />
+                      Book Appointment
+                    </Button>
+                  </Link>
+                </div>
+              </motion.div>
+            ))
+          ) : (
+            <div className="col-span-full text-center py-8">
+              <p className="text-gray-500 text-lg">No doctors found matching your search criteria.</p>
+            </div>
+          )}
         </motion.div>
 
-        <div className="mt-12 text-center">
-          <Button
-            onClick={toggleShowAll}
-            variant="outline"
-            className="inline-flex items-center gap-2 border-healthcare-500 text-healthcare-600 hover:bg-healthcare-50"
-          >
-            {showAll ? (
-              <>Show Less <ChevronUp className="w-4 h-4" /></>
-            ) : (
-              <>View All Doctors <ChevronDown className="w-4 h-4" /></>
-            )}
-          </Button>
-        </div>
+        {filteredDoctors.length > 4 && (
+          <div className="mt-12 text-center">
+            <Button
+              onClick={toggleShowAll}
+              variant="outline"
+              className="inline-flex items-center gap-2 border-healthcare-500 text-healthcare-600 hover:bg-healthcare-50"
+            >
+              {showAll ? (
+                <>Show Less <ChevronUp className="w-4 h-4" /></>
+              ) : (
+                <>View All Doctors <ChevronDown className="w-4 h-4" /></>
+              )}
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );

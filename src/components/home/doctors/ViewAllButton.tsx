@@ -1,6 +1,7 @@
 
 import { Button } from '@/components/ui/button';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface ViewAllButtonProps {
   showAll: boolean;
@@ -12,7 +13,12 @@ const ViewAllButton: React.FC<ViewAllButtonProps> = ({ showAll, toggleShowAll, s
   if (!shouldShow) return null;
   
   return (
-    <div className="mt-12 text-center">
+    <motion.div 
+      className="mt-12 text-center"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.3 }}
+    >
       <Button
         onClick={toggleShowAll}
         variant="outline"
@@ -24,7 +30,7 @@ const ViewAllButton: React.FC<ViewAllButtonProps> = ({ showAll, toggleShowAll, s
           <>View All Doctors <ChevronDown className="w-4 h-4" /></>
         )}
       </Button>
-    </div>
+    </motion.div>
   );
 };
 

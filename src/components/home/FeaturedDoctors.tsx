@@ -20,6 +20,10 @@ const FeaturedDoctors = () => {
 
   const toggleShowAll = () => {
     setShowAll(!showAll);
+    // Scroll to the doctor section when toggling
+    if (!showAll) {
+      document.getElementById('doctors')?.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (

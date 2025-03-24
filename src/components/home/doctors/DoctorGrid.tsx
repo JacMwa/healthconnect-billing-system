@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import { Doctor } from '@/data/doctors';
 import DoctorCard from './DoctorCard';
-import { containerVariants } from './AnimationVariants';
+import { containerVariants, itemVariants } from './AnimationVariants';
 
 interface DoctorGridProps {
   doctors: Doctor[];

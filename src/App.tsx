@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Index from "./pages/Index";
+
 import Appointments from "./pages/Appointments";
 import Billing from "./pages/Billing";
 import MedicalHistory from "./pages/MedicalHistory";

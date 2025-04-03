@@ -11,7 +11,7 @@ const Footer = () => {
             <Link to="/" className="flex items-center mb-5">
               <div className="relative">
                 <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-healthcare-600 to-healthcare-400">
-                  Avenue
+                 
                 </span>
                 <span className="text-2xl font-bold text-healthcare-900">Healthcare</span>
               </div>
@@ -108,7 +108,7 @@ const Footer = () => {
               <li className="flex items-start space-x-3">
                 <MapPin size={20} className="text-healthcare-500 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-600">
-                  123 Healthcare Avenue, Medical District, Nairobi, Kenya
+                  123 Healthcare , Medical District, Nairobi, Kenya
                 </span>
               </li>
               <li className="flex items-center space-x-3">
@@ -117,7 +117,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={20} className="text-healthcare-500 flex-shrink-0" />
-                <span className="text-gray-600">contact@avenuehealthcare.com</span>
+                <span className="text-gray-600">contact@healthcare.com</span>
               </li>
             </ul>
           </div>
@@ -126,7 +126,7 @@ const Footer = () => {
         <div className="border-t border-gray-200 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 text-sm mb-4 md:mb-0">
-              © {new Date().getFullYear()} Avenue Healthcare. All rights reserved.
+              © {new Date().getFullYear()}  Healthcare. All rights reserved.
             </p>
             <div className="flex space-x-6">
               <Link to="/terms" className="text-gray-500 hover:text-healthcare-500 text-sm transition-colors">

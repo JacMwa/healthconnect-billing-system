@@ -1,10 +1,18 @@
-
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar } from 'lucide-react';
+import { Calendar, ChevronDown, ChevronUp, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { 
+  Card, 
+  CardContent, 
+  CardFooter, 
+  CardHeader 
+} from '@/components/ui/card';
 
 const FeaturedDoctors = () => {
+  const [showAll, setShowAll] = useState(false);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -27,38 +35,107 @@ const FeaturedDoctors = () => {
 
   const doctors = [
     {
-      id: 1,
-      name: 'Dr. Sarah Johnson',
-      specialty: 'Cardiology',
-      image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80',
-      experience: '15 years',
-      education: 'MBBS, MD (Cardiology)',
+      
+        id: 1,
+        name: 'Dr.Allan Thiongo',
+        image: 'images/doc1.jpg',
+        experience: '15 years',
+        education: 'MBBS, MD (Surgery)',
+      },
+      {
+        id: 2,
+        name: 'Dr. Andrew 	Romell',
+        specialty: 'Cardiology',
+        image: 'images/doctor-thumb-06.jpg',
+        experience: '12 years',
+        education: 'MBBS, MD (Cardiologist)',
+      },
+      {
+        id: 3,
+        name: 'Dr. Jackline 	Matindi',
+        specialty: 'Neurologist',
+        image: 'images/doctor-thumb-07.jpg',
+        experience: '10 years',
+        education: 'MBBS, MD (Neurology)',
+      },
+      {
+        id: 4,
+        name: 'Dr. Fatuma 	Onyango',
+        specialty: 'Pediatrician',
+        image: 'images/doctor-thumb-08.jpg',
+        experience: '14 years',
+        education: 'MBBS, MS (Pediatrician)',
+      },
+      // Additional doctors (hidden by default)
+      { id: 5,
+        name: 'Dr. Patrick 	Wekesa',
+        specialty: 'Orthopedist',
+       
+        image: 'images/doc02.jpg',
+        experience: '13 years',
+        education: 'MBBS, MS (Orthopedist)',
     },
-    {
-      id: 2,
-      name: 'Dr. Michael Chen',
-      specialty: 'Pediatrics',
-      image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80',
-      experience: '12 years',
-      education: 'MBBS, MD (Pediatrics)',
+    {   id: 6,
+        name: 'Dr.Lilian 	Koech',
+        specialty: 'Gynecologist',
+        image: 'images/doctor-thumb-10.jpg',
+        experience: '15 years',
+        education: 'MBBS, MS (Gynecologist)',
     },
-    {
-      id: 3,
-      name: 'Dr. Emily Williams',
-      specialty: 'Dermatology',
-      image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80',
-      experience: '10 years',
-      education: 'MBBS, MD (Dermatology)',
+    {   id: 7,
+        name: 'Dr. Moses 	Muriithi',
+        specialty: 'Endocrinologist',
+        image: 'images/doctor-thumb-11.jpg',
+        experience: '18 years',
+        education: 'MBBS, MS (Endocrinologist)',
     },
-    {
-      id: 4,
-      name: 'Dr. David Ouma',
-      specialty: 'Orthopedics',
-      image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80',
-      experience: '14 years',
-      education: 'MBBS, MS (Orthopedics)',
-    },
-  ];
+    {   id: 8,
+        name: 'Dr. Beatrice 	Chepkwon',
+        specialty: 'Internist',
+      
+        image: 'images/fdoc4.jpg',
+        experience: '11 years',
+        education: 'MBBS, MS (internist)',
+      },
+      {   id: 9,
+          name: 'Dr. Daniel 	Karanja',
+          specialty: 'Cardiologist',
+          
+          image: 'images/doc04.jpg',
+          experience: '14 years',
+          education: 'MBBS, MS (Cardiologist)',
+      },
+      {   id: 10,
+          name: 'Dr. Hellen 	Muthoni',
+          specialty: 'Neurologist',
+          
+          image: 'images/fdoc5.jpg',
+          experience: '17 years',
+          education: 'MBBS, MS (Neurologist)',
+      },
+      {   id: 11,
+          name: 'Dr. Joseph 	Kiptoo',
+          specialty: 'Urologist',
+          
+          image: 'images/doc05.jpeg',
+          experience: '18 years',
+          education: 'MBBS, MS (Urologist)',
+      },
+      {   id: 12,
+          name: 'Dr. Caroline 	Nyambura',
+          specialty: 'Dermatologist',
+          image: 'images/fdoc7.jpeg',
+          experience: '16 years',
+          education: 'MBBS, MS (Dermatology)',
+      
+  }  ];
+
+  // Display only the first 4 doctors initially, show all when showAll is true
+  const displayedDoctors = showAll ? doctors : doctors.slice(0, 4);
+
+  const toggleShowAll = () => {
+    setShowAll(!showAll);
+  };
 
   return (
     <section className="py-16 md:py-24 bg-healthcare-50">
@@ -83,7 +160,7 @@ const FeaturedDoctors = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {doctors.map((doctor) => (
+          {displayedDoctors.map((doctor) => (
             <motion.div
               key={doctor.id}
               className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-md group"
@@ -118,6 +195,20 @@ const FeaturedDoctors = () => {
             </motion.div>
           ))}
         </motion.div>
+
+        <div className="mt-12 text-center">
+          <Button
+            onClick={toggleShowAll}
+            variant="outline"
+            className="inline-flex items-center gap-2 border-healthcare-500 text-healthcare-600 hover:bg-healthcare-50"
+          >
+            {showAll ? (
+              <>Show Less <ChevronUp className="w-4 h-4" /></>
+            ) : (
+              <>View All Doctors <ChevronDown className="w-4 h-4" /></>
+            )}
+          </Button>
+        </div>
       </div>
     </section>
   );

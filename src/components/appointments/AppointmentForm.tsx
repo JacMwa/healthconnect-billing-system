@@ -13,13 +13,25 @@ import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
 
 const specialists = [
-  { id: 1, name: 'Dr. Sarah Johnson', specialty: 'Cardiology' },
-  { id: 2, name: 'Dr. Michael Chen', specialty: 'Pediatrics' },
-  { id: 3, name: 'Dr. Emily Williams', specialty: 'Dermatology' },
-  { id: 4, name: 'Dr. David Ouma', specialty: 'Orthopedics' },
-  { id: 5, name: 'Dr. John Kamau', specialty: 'General Medicine' },
-  { id: 6, name: 'Dr. Lisa Wong', specialty: 'Gynecology' },
-  { id: 7, name: 'Dr. Robert Smith', specialty: 'Neurology' },
+  { id: 1, name: 'Dr. allan 	thiongo', specialty: 'Surgeon' },
+  { id: 2, name: 'Dr. Andrew 	Romell', specialty: 'Cardiologist' },
+  { id: 3, name: 'Dr. Jackline 	Matindi', specialty: 'Neurologist' },
+  { id: 4, name: 'Dr.  Fatuma 	Onyango', specialty: 'Pediatrician' },
+  { id: 5, name: 'Dr.  Patrick 	Wekesa', specialty: 'Orthopedist' },
+  { id: 6, name: 'Dr. Lilian 	Koech', specialty: 'Gynecologist' },
+  { id: 7, name: 'Dr. Moses 	Muriithi', specialty: 'Endocrinologist' },
+  { id: 8, name: 'Dr. Beatrice 	Chepkwon', specialty: 'Internist' },
+  { id: 9, name: 'Dr. Daniel 	Karanja', specialty: 'Cardiologist' },
+  { id: 10, name: 'Dr. Hellen 	Muthoni', specialty: 'Neurologist' },
+  { id: 11, name: 'Dr.Joseph 	Kiptoo', specialty: 'Urologist' },
+  { id: 12, name: 'Dr. Caroline 	Nyambura', specialty: 'Dermatologist' },
+  { id: 13, name: 'Dr. Agnes 	Wambui', specialty: 'Pulmonologist' },
+  { id: 14, name: 'Dr. Eric 	Otieno', specialty: 'Endocrinologist' },
+  { id: 15, name: 'Dr. Mercy 	Kimani', specialty: 'Gastroenterologist' },
+  { id: 16, name: 'Dr. Joyce 	Nabwire', specialty: 'Urologist' },
+  { id: 17, name: 'Dr. Eric 	Otieno', specialty: 'Endocrinologist' },
+ 
+
 ];
 
 const timeSlots = [

@@ -63,7 +63,7 @@ const Header = () => {
               className="relative"
             >
               <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-healthcare-600 to-healthcare-400">
-                Avenue
+               Medial
               </span>
               <span className="text-2xl font-bold text-healthcare-900">Healthcare</span>
             </motion.div>
@@ -102,7 +102,7 @@ const Header = () => {
             </Link>
             <div className="flex items-center space-x-2 text-healthcare-700">
               <Phone size={18} />
-              <span className="font-medium">1-800-AVENUE</span>
+              <span className="font-medium">1-800-MEDIAL</span>
             </div>
           </div>
 
@@ -151,7 +151,7 @@ const Header = () => {
               </Link>
               <div className="flex items-center space-x-2 text-healthcare-700 py-3 px-4">
                 <Phone size={18} />
-                <span className="font-medium">1-800-AVENUE</span>
+                <span className="font-medium">1-800-HealthCareE</span>
               </div>
             </nav>
           </motion.div>

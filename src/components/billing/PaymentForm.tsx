@@ -500,8 +500,8 @@ const PaymentForm = ({ onPaymentSuccess }: PaymentFormProps) => {
                           <p className="font-medium mb-1">Bank Transfer Details</p>
                           <p className="mb-2">Please make a transfer to the following account:</p>
                           <div className="space-y-1">
-                            <p><span className="font-medium">Bank Name:</span> Avenue Healthcare Bank</p>
-                            <p><span className="font-medium">Account Name:</span> Avenue Healthcare Ltd</p>
+                            <p><span className="font-medium">Bank Name:</span> Healthcare Bank</p>
+                            <p><span className="font-medium">Account Name:</span>  Healthcare Ltd</p>
                             <p><span className="font-medium">Account Number:</span> 1234567890</p>
                             <p><span className="font-medium">Branch:</span> Main Branch</p>
                             <p><span className="font-medium">Reference:</span> {invoice?.invoiceNumber}</p>

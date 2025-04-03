@@ -61,7 +61,7 @@ const Hero = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.1 }}
             >
-              Welcome to Avenue Healthcare
+              Welcome to Healthcare
             </motion.span>
             
             <motion.h1 
@@ -138,7 +138,7 @@ const Hero = () => {
             />
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                src="images/aa.jpg"
                 alt="Doctor with patient"
                 className="w-full h-full object-cover"
               />

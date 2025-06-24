@@ -40,7 +40,11 @@
     "@radix-ui/react-toggle": "^1.1.0",
     "@radix-ui/react-toggle-group": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.1.4",
+<<<<<<< HEAD
     "@supabase/supabase-js": "^2.49.2",
+=======
+    "@supabase/supabase-js": "^2.49.1",
+>>>>>>> 0693199bc4f899b119c0cc1dc3f69d1f290599c9
     "@tanstack/react-query": "^5.56.2",
     "axios": "^1.8.4",
     "class-variance-authority": "^0.7.1",

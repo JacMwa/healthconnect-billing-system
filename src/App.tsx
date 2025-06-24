@@ -12,6 +12,9 @@ import Billing from "./pages/Billing";
 import MedicalHistory from "./pages/MedicalHistory";
 import Feedback from "./pages/Feedback";
 import NotFound from "./pages/NotFound";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
+import Sitemap from "./pages/Sitemap";
 
 // Add framer-motion for better page transitions
 import { motion } from "framer-motion";
@@ -31,6 +34,9 @@ const App = () => (
             <Route path="/billing" element={<Billing />} />
             <Route path="/medical-history" element={<MedicalHistory />} />
             <Route path="/feedback" element={<Feedback />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/sitemap" element={<Sitemap />} />
             {/* Add other routes as needed */}
             <Route path="*" element={<NotFound />} />
           </Routes>
